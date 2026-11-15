@@ -1,3 +1,19 @@
+#Copyright 2026 Evaristo Velasquez
+#
+#Licensed under the Apache License, Version 2.0 (the "License");
+#you may not use this file except in compliance with the License.
+#You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+#Unless required by applicable law or agreed to in writing, software
+#distributed under the License is distributed on an "AS IS" BASIS,
+#WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#See the License for the specific language governing permissions and
+#limitations under the License.
+
+
+
 import random
 import subprocess
 import shutil
@@ -250,17 +266,19 @@ while com!="x":
         |[#]:->
         """
         print(pan)
-        com=input("->: ")
+        com=input("->: ");ap=False
         try:
-            if int(com)<len(arch):
-                nrb="boul"+"/"+arch[int(com)].split(":")[2].split("/")[len(arch[int(com)].split(":")[2].split("/"))-1].replace("\n","")
-                shutil.move(arch[int(com)].split(":")[2].replace("\n",""),nrb)
-                anpy(nrb)
-                shutil.move(nrb,arch[int(com)].split(":")[2].replace("\n",""))
-                os.system("xdg-open "+arch[int(com)].split(":")[2].replace("\n",""))
+            if int(com)<len(arch):ap=True
+
         except ValueError:
             print("...")
-        if   com=="i":
+        if   ap:
+            nrb="boul"+"/"+arch[int(com)].split(":")[2].split("/")[len(arch[int(com)].split(":")[2].split("/"))-1].replace("\n","")
+            shutil.move(arch[int(com)].split(":")[2].replace("\n",""),nrb)
+            anpy(nrb)
+            shutil.move(nrb,arch[int(com)].split(":")[2].replace("\n",""))
+            os.system("xdg-open "+arch[int(com)].split(":")[2].replace("\n",""))
+        elif com=="i":
             com=input("ingresar ruta: ")
             if com.count("GD_")>0:
                 cmm=input("ingresar comentario: ")
