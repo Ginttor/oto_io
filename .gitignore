@@ -24,3 +24,4 @@ rad.json
 TestResults.xml
 #############
 *.txt
+*.json
